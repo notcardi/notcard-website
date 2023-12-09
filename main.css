@@ -6,5 +6,6 @@ body {
 	text-align: center;
 }
 .main-header {
-	background-image: url("ncbanner.png")
+	background-image: url("ncbanner.png");
+	background-size: cover
 }
