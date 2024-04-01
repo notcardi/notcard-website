@@ -1,73 +1,12 @@
-
-local HttpService = game:GetService("HttpService")
-local function ParseJSON(codeURL)
-	local data = HttpService:GetAsync(codeURL)
-	if data then
-		local ldata = HttpService:JSONDecode(data)
-		if ldata then
-			local instances = ldata["Instances"]
-			if instances then
-				for _, inst in pairs(instances) do
-					local name = inst["Name"]
-					local classname = inst["Classname"]
-					local isAnchored = inst["Anchored"]
-					local pos = inst["Position"]
-					local dir = inst["Parent"]
-					local partcolor = inst["Color"]
-					if classname and dir then
-						print("Name:",name)
-						print("Class:", classname)
-						print("Anchored:", isAnchored)
-						print("Position:", pos)
-						print("Directory:", dir)
-						print("Color:", partcolor)
-						local ins = Instance.new(classname)
-						if ins and dir and name then
-							ins.Name = name
-							if isAnchored ~= nil then
-								pcall(function()
-									ins.Anchored = isAnchored
-								end)
-							end
-							if pos ~= nil then
-								pcall(function()
-									ins.Position = Vector3.new(pos["X"], pos["Y"], pos["Z"])
-								end)
-							end
-							local decodedparent = game
-							local split = dir:split(".")
-							for i,v in pairs(split) do
-								decodedparent = decodedparent[v]
-							end
-							ins.Parent = decodedparent
-							if partcolor ~= nil then
-								local r = partcolor["R"]
-								local g = partcolor["G"]
-								local b = partcolor["B"]
-								ins.Color = Color3.fromRGB(r,g,b)
-							end
-
-						end
-
-					end
-				end
-			else
-				print("Found no instances, skipping...")
-			end
-			
-		else
-			warn("Data has to be a valid URL to a JSON script.")
-		end
-	else
-		warn("Data has to be a valid URL to a JSON script.")
-	end
-end
-	
-	
-
-
-
-
-result = {}
-result["ParseJSON"] = ParseJSON
-return result
+<html>
+	<head>
+		<script>window["GUARDIO_SENSOR_CONF"] = {"click":true}</script>
+		<meta name="color-scheme" content="light dark">
+	</head>
+	<body>
+	<pre><![CDATA[
+		This is a demo, tags like <p> will
+		appear literally.
+	]]></pre>
+	</body>
+</html>
