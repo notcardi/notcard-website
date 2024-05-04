@@ -68,3 +68,29 @@ html, body {
 	padding: 0 5%;
 	text-align: center;
 }
+
+
+.smol {
+	width: 15%;
+	height: 13%;
+	min-width: 100px;
+	max-width: 115px;
+	padding:20px;
+}
+
+.footer {
+	background-color: #2c2c2c;
+	text-align: center;
+
+}
+
+.vid {
+	flex: 1 0 300px; 
+	border-radius: 10px;
+}
+
+.itchiolink {
+	color: rgb(224, 124, 9);
+	text-decoration: none !important;
+}
+
